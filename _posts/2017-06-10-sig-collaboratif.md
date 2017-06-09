@@ -20,7 +20,7 @@ Nous verrons maintenant comment aborder le problème le plus basique : créer un
 ![2017-06-10-alwaysdata2.png]({{site.baseurl}}/img/2017-06-10-alwaysdata2.jpg)
 
   
-3)	Enfin le dernier élément, l’adresse internet de notre base. Celle-ci sera affiche après la création de la base et devrait ressembler à « postgresql-NOM_DE_INSCRIPTION.awaysdata.net ». Notez-la.
+3)	Enfin le dernier élément, l’adresse internet de notre base. Celle-ci sera affichée après la création de la base et devrait ressembler à « postgresql-NOM_DE_INSCRIPTION.awaysdata.net ». Notez-la.
  
 ![2017-06-10-alwaysdata3.png]({{site.baseurl}}/img/2017-06-10-alwaysdata3.jpg)
 
@@ -38,11 +38,11 @@ b)	Approche « comme il faut ». On devrait plutôt gérer nos sources de donné
 
 ![2017-06-10-QGIS2.jpg]({{site.baseurl}}/img/2017-06-10-QGIS2.jpg)
 
-Et voilà, une solution « pro » ! PostGIS est capable de gèrer *des centaines* d’utilisteurs, donc pas de souci au niveau de software. Pour des usages avancés, vous avec l’accès direct à la base PostGIS via l’addresse [phppgadmin.alwaysdata.com](https://phppgadmin.alwaysdata.com/). (C’est le sujet pour une autre occasion…)
+Et voilà, une solution « pro » ! PostGIS est capable de gèrer *des centaines* d’utilisteurs, donc pas de souci au niveau de software. Pour des usages avancés, vous avez l’accès direct à la base PostGIS via l’addresse [phppgadmin.alwaysdata.com](https://phppgadmin.alwaysdata.com/). (C’est le sujet pour une autre occasion…)
  
 ## B-mol (il y en toujours un…)
 
-La solution décrite ici utilise un paquet promotionnel : il n’implique aucune obligation particulière de part de l’hébergeur (ci j’ai bien compris). En effet, votre compte, *avec tous vos données* sera d’abord suspendu dans le cas d’une période d’inactivité supérieure à deux mois, pour se faire carrément *effacer* suite à 30 jours supplémentaires (au mois c’est mon expérience). Il s’agit, en fin de compte, d’un paquet gratuit, promotionnel, mais avec des fonctionnalités assez avancées (notamment au niveau d’instalation de PostGIS) : on ne devrait pas critiquer, c’est déjà pas mal ! Investissez quelques sous dans le cas d’un travail plus sérieux… (Je n’ai aucun lien avec la compagnie.) 
+La solution décrite ici utilise un paquet promotionnel : aucune obligation particulière n'est pas impliquée de part de l’hébergeur (ci j’ai bien compris). En effet, votre compte, *avec tous vos données* sera d’abord suspendu dans le cas d’une période d’inactivité supérieure à deux mois, pour se faire carrément *effacer* suite à 30 jours supplémentaires (au mois c’est mon expérience). Il s’agit, en fin de compte, d’un paquet gratuit, promotionnel, mais avec des fonctionnalités assez avancées (notamment au niveau d’instalation de PostGIS) : on ne devrait pas critiquer, c’est déjà pas mal ! Investissez quelques sous dans le cas d’un travail plus sérieux… (Je n’ai aucun lien avec la compagnie.) 
 
 La taille de l’hébergement entier est limité à 100 mb : cela devrait souffrir pour une utilisation plutôt légère, mais probablement pas pour des projets d’envergure.
 
