@@ -2,8 +2,10 @@
 _site
 .sass-cache
 .vagrant
+RADNI
 
 # general
 .DS_Store
 Thumbs.db
 ehthumbs.db
+*.bat
