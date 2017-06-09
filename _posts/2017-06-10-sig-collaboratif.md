@@ -1,14 +1,34 @@
 ---
 layout: post
-title: Flake it till you make it
-subtitle: Excerpt from Soulshaping by Jeff Brown
-bigimg: /img/path.jpg
+title: SIG collaboratif
+subtitle: Solution simple et gratuite
+author: Zoran
 ---
 
-Under what circumstances should we step off a path? When is it essential that we finish what we start? If I bought a bag of peanuts and had an allergic reaction, no one would fault me if I threw it out. If I ended a relationship with a woman who hit me, no one would say that I had a commitment problem. But if I walk away from a seemingly secure route because my soul has other ideas, I am a flake?  
+Travailler, ce n'est peut-être pas toujours la chose la plus passionnante, mais c'est quand même plus amusant (et plus efficace) en collaboration. Il y a, dans le monde de SIG, bien de solutions pour le travail collaboratif sur un même jeu de données, mais le plus souvent elles sont soit couteuses, soit exigeantes au niveau technique. Cependant, il existe un moyen quelque peu obscur, caché dans le benthos de l’internet, qui permet d’utiliser l’architecture collaborative – gratuitement. Le hébergeur (fournisseur / prestataire ) [Alwaysdata]( www.alwaysdata.com) (la compagnie est française malgré le nom) offre dans son paquet découverte l’hébergement des bases de données PostGIS, très performantes et largement utilisées dans le monde SIG.
 
-The truth is that no one else can definitively know the path we are here to walk. It’s tempting to listen—many of us long for the omnipotent other—but unless they are genuine psychic intuitives, they can’t know. All others can know is their own truth, and if they’ve actually done the work to excavate it, they will have the good sense to know that they cannot genuinely know anyone else’s. Only soul knows the path it is here to walk. Since you are the only one living in your temple, only you can know its scriptures and interpretive structure.  
+Nous verrons maintenant comment aborder le problème le plus basique : créer une base de données en ligne pour s’y connecter par la suite.
+1)	D’abord il faut créer un compte sur le site d’[Awaysdata](www.alwaysdata.com) et ajouter ensuite une base de données PostgreSQL (dans le tableau de bord, choisir Bases de données >> PostgreSQL). Renseignez le nom de la base, et surtout cochez la case PostGIS (ce dernier étant une extension de PostgreSQL).
 
-At the heart of the struggle are two very different ideas of success—survival-driven and soul-driven. For survivalists, success is security, pragmatism, power over others. Success is the absence of material suffering, the nourishing of the soul be damned. It is an odd and ironic thing that most of the material power in our world often resides in the hands of younger souls. Still working in the egoic and material realms, they love the sensations of power and focus most of their energy on accumulation. Older souls tend not to be as materially driven. They have already played the worldly game in previous lives and they search for more subtle shades of meaning in this one—authentication rather than accumulation. They are often ignored by the culture at large, although they really are the truest warriors.  
 
-A soulful notion of success rests on the actualization of our innate image. Success is simply the completion of a soul step, however unsightly it may be. We have finished what we started when the lesson is learned. What a fear-based culture calls a wonderful opportunity may be fruitless and misguided for the soul. Staying in a passionless relationship may satisfy our need for comfort, but it may stifle the soul. Becoming a famous lawyer is only worthwhile if the soul demands it. It is an essential failure if you are called to be a monastic this time around. If you need to explore and abandon ten careers in order to stretch your soul toward its innate image, then so be it. Flake it till you make it.
+
+2)	Ensuite, il faut ajouter un/des utilisateurs et renseigner le/les mots de passe (toujours dans la même rubrique « Bases de données >> PostgreSQL »). Pour l’utilisateur-propriétaire, le mot de passe est le même que pour le compte même (sauf si spécifié autrement).
+  
+3)	Enfin le dernier élément, l’adresse internet de notre base. Celle-ci sera affiche après la création de la base et devrait ressembler à « postgresql-NOM_DE_INSCRIPTION.awaysdata.net ». Notez-la.
+ 
+
+Nous disposons maintenant de quatre informations nécessaires : adresse de la base, son nom et le nom d’utilisateur avec son mot de passe. D’autres utilisateurs/collaborateurs peuvent être ajoutés par la suite, bien évidemment.
+Je passerai maintenant au QGIS pour faire marcher l’engin. Il s’agit tout simplement d’une connexion à la base de données, ce qui devrait être faisable par n’importe quel logiciel SIG digne de ce nom.  
+a)	Approche directe : Ajouter une couche PostGIS. Choisir une nouvelle connexion et remplir les cases avec nos informations. 
+
+  
+Ensuite, dans Database >> Manager utiliser la fonction Import layer pour ajouter les données (parce que la base est vide …)
+b)	Approche « comme il faut ». On devrait plutôt gérer nos sources de données dans le QGIS Browser, c’est plus propre. Donc, tout simplement, créer une connexion en renseignant les mêmes informations que dessus (laissez vide la case « service »). Passez, ensuite, dans le QGIS et ajoutez la couche PostGIS depuis cette connexion.
+ 
+
+Et voilà, une solution « pro » ! PostGIS est capable de gèrer *des centaines* d’utilisteurs, donc pas de souci au niveau de software. Pour des usages avancés, vous avec l’accès direct à la base PostGIS via l’addresse [phppgadmin.alwaysdata.com](https://phppgadmin.alwaysdata.com/). (C’est le sujet pour une autre occasion…)
+ 
+B-mol (il y en toujours un…)
+La solution décrite ici utilise un paquet promotionnel : il n’implique aucune obligation particulière de part de l’hébergeur (ci j’ai bien compris). En effet, votre compte, *avec tous vos données* sera d’abord suspendu dans le cas d’une période d’inactivité supérieure à deux mois, pour se faire carrément *effacer* suite à 30 jours supplémentaires (au mois c’est mon expérience). Il s’agit, en fin de compte, d’un paquet gratuit, promotionnel, mais avec des fonctionnalités assez avancées (notamment au niveau d’instalation de PostGIS) : on ne devrait pas critiquer, c’est déjà pas mal ! Investissez quelques sous dans le cas d’un travail plus sérieux… (Je n’ai aucun lien avec la compagnie.) 
+La taille de l’hébergement entier est limité à 100 mb : cela devrait souffrir pour une utilisation plutôt légère, mais probablement pas pour des projets d’envergure.
+Enfin, restent tous les problèmes d’organisation d’une base collective. Par exemple, qu’est-ce qu’il se passe dans le cas de modification par plusieurs utilisateurs en même temps ? Sans un paramétrage supplémentaire, c’est le plus rapide qui gagne. Mais, c’est le problème pour une autre occasion… [(voir ici, par exemple)](http://workshops.boundlessgeo.com/postgis-intro/history_tracking.html)
